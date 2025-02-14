@@ -4,7 +4,7 @@ const logger = require('./logger');
 // Master pool for write operations
 const masterPool = new Pool({
     user: process.env.DB_USER,
-    host: process.env.MASTER_DB_HOST,
+    host: process.env.MASTER_DB_HOST, // master db host IP
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
@@ -16,7 +16,7 @@ const masterPool = new Pool({
 // Replica pool for read operations (via NLB)
 const replicaPool = new Pool({
     user: process.env.DB_USER,
-    host: process.env.READ_REPLICA_HOST,
+    host: process.env.READ_REPLICA_HOST, // NLB DNS name
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
